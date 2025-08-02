@@ -1,33 +1,3 @@
-document.getElementById('doseForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const weight = parseFloat(document.getElementById('weight').value);
-  if (!weight) return;
-
-  const maxDose = 2000; // mg
-  const usualLow = 20 * weight;
-  const usualHigh = 50 * weight;
-  const highLow = 80 * weight;
-  const highHigh = 90 * weight;
-
-  // Convert mg/day to ml/day (250 mg per 5 ml)
-  const mgPerMl = 250 / 5;
-  const usualMlLow = (usualLow / mgPerMl).toFixed(1);
-  const usualMlHigh = (usualHigh / mgPerMl).toFixed(1);
-  const highMlLow = (highLow / mgPerMl).toFixed(1);
-  const highMlHigh = (highHigh / mgPerMl).toFixed(1);
-
-  // Capsules 500 mg
-  const capDose = Math.min(2, Math.floor(maxDose / 500));
-
-  // Display results
-  document.getElementById('usualMl').innerText = `${usualMlLow} - ${usualMlHigh} ml/day (Usual)`;
-  document.getElementById('highMl').innerText = `${highMlLow} - ${highMlHigh} ml/day (High)`;
-  document.getElementById('capsuleDose').innerText = `${capDose} cap/day`;
-
-  document.getElementById('result').classList.remove('hidden');
-});
-
 
 let medications = [];
 
@@ -40,7 +10,6 @@ Papa.parse('meds.csv', {
     populateDropdown();
   }
 });
-
 
 function populateDropdown() {
   const select = document.getElementById('drugName');
@@ -57,4 +26,35 @@ function populateDropdown() {
       select.appendChild(option);
     }
   });
+}
+
+function calculateDose() {
+  const selectedDrug = document.getElementById('drugName').value;
+  const weight = parseFloat(document.getElementById('weight').value);
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = ''; // clear previous
+
+  if (isNaN(weight) || weight <= 0) {
+    resultDiv.textContent = "Please enter a valid weight.";
+    return;
+  }
+
+  const matchingDrugs = medications.filter(d => d.name === selectedDrug);
+
+  if (matchingDrugs.length === 0) {
+    resultDiv.textContent = "No data available for this drug.";
+    return;
+  }
+
+  const ul = document.createElement('ul');
+  matchingDrugs.forEach(drug => {
+    const dose = drug.MaxdosePerKg * weight;
+    const li = document.createElement('li');
+    li.textContent = `${drug.concentration}: ${dose} ${drug.concentrationUnit}`;
+    ul.appendChild(li);
+  });
+
+  resultDiv.appendChild(document.createElement('hr'));
+  resultDiv.appendChild(document.createTextNode(`Recommended doses for ${selectedDrug}:`));
+  resultDiv.appendChild(ul);
 }
