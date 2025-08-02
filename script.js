@@ -27,3 +27,34 @@ document.getElementById('doseForm').addEventListener('submit', function (e) {
 
   document.getElementById('result').classList.remove('hidden');
 });
+
+
+let medications = [];
+
+// Load and parse the CSV
+Papa.parse('meds.csv', {
+  download: true,
+  header: true,
+  complete: function(results) {
+    medications = results.data;
+    populateDropdown();
+  }
+});
+
+
+function populateDropdown() {
+  const select = document.getElementById('drugName');
+  const uniqueNames = new Set();
+
+  medications.forEach((med, index) => {
+    const name = med.name?.trim();
+    if (name && !uniqueNames.has(name)) {
+      uniqueNames.add(name);
+
+      const option = document.createElement('option');
+      option.value = name; // use name instead of index
+      option.text = name;
+      select.appendChild(option);
+    }
+  });
+}
