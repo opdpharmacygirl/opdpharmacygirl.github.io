@@ -1,10 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="th">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRA PED Dose Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div>
-    <h1>CRA Ped-dose Calculator</h1>
-    <p>Ref. MIMS.com</p>
-  </div>
+  <header>
+    <h1>PED DOSE CALCULATOR</h1>
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#">VACCINE</a>
+      <a href="#">COURSES</a>
+      <a href="#">SHOP</a>
+      <a href="#">REFERENCE</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="doseForm">
+      <label>Body Weight (kg): <input type="number" id="weight" required></label>
+      <label>Age (year): <input type="number" id="age" required></label>
+      <label>Drug Name:
+        <select id="drugName">
+          <option value="amoxicillin">Amoxicillin</option>
+        </select>
+      </label>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <section id="result" class="hidden">
+      <h2>Amoxicillin</h2>
+      <p>Usual Dose: 20-50 mg/kg/day<br>
+         High Dose: 80-90 mg/kg/day<br>
+         Max dose: 2 g/day</p>
+
+      <div class="dose-card usual">
+        <h3>Amox Sus 250 mg/5 ml (Usual)</h3>
+        <p id="usualMl"></p>
+      </div>
+
+      <div class="dose-card high">
+        <h3>Amox Sus 250 mg/5 ml (High)</h3>
+        <p id="highMl"></p>
+      </div>
+
+      <div class="dose-card cap">
+        <h3>Amoxicillin Cap 500 mg</h3>
+        <p id="capsuleDose"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

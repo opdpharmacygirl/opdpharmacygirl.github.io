@@ -1,0 +1,54 @@
+body {
+  font-family: 'Sarabun', sans-serif;
+  background: #fdfcfa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: #a765ff;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  background: #7bc087;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dose-card {
+  background: #fff4ea;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.usual { border-left: 5px solid #6fcf97; }
+.high  { border-left: 5px solid #f66; }
+.cap   { border-left: 5px solid #a8dadc; }
+
+.hidden {
+  display: none;
+}

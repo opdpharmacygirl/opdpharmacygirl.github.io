@@ -1,0 +1,12 @@
+name,form,route,HighDose,MindosePerKg,MaxdosePerKg,Per,maxDosePerDay,Interval,concentration,concentrationUnit,unit
+Amoxicillin,oral suspension,oral,Usual,20,50,perday,2000,"2,3",250,mg/5ml,mg
+Amoxicillin,oral suspension,oral,High,80,90,perday,2000,"2,3",250,mg/5ml,mg
+Amoxicillin,capsule,oral,Usual,20,50,perday,2000,"2,3",500,mg/cap,mg
+Amoxicillin,capsule,oral,High,80,90,perday,2000,"2,3",500,mg/cap,mg
+Paracetamol,oral suspension,oral,Usual,10,15,perdose,4000,4,120,mg/5ml,mg
+Paracetamol,oral suspension,oral,Usual,10,15,perdose,4000,4,250,mg/5ml,mg
+Paracetamol,tablet,oral,Usual,10,15,perdose,4000,4,500,mg/tab,mg
+Ibuprofen,oral suspension,oral,Usual,5,10,perdose,1200,3,100,mg/5ml,mg
+Ibuprofen,tablet,oral,Usual,5,10,perdose,1200,3,400,mg/tab,mg
+Azithromycin,oral suspension,oral,Usual,10,15,perday,500,1,200,mg/5ml,mg
+Azithromycin,capsule,oral,Usual,10,15,perday,500,1,250,mg/cap,mg
