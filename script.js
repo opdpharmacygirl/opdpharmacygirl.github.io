@@ -16,13 +16,13 @@ function populateDropdown() {
   const uniqueNames = new Set();
 
   medications.forEach((med, index) => {
-    const name = med.Name?.trim();
-    if (name && !uniqueNames.has(name)) {
-      uniqueNames.add(name);
+    const drugName = med.Name?.trim();
+    if (drugName && !uniqueNames.has(drugName)) {
+      uniqueNames.add(drugName);
 
       const option = document.createElement('option');
-      option.value = name; // use name instead of index
-      option.text = name;
+      option.value = drugName; // use name instead of index
+      option.text = drugName;
       select.appendChild(option);
     }
   });
@@ -39,7 +39,7 @@ function calculateDose() {
     return;
   }
 
-  const matchingDrugs = medications.filter(d => d.name === selectedDrug);
+  const matchingDrugs = medications.filter(d => d.Name === selectedDrug);
 
   if (matchingDrugs.length === 0) {
     resultDiv.textContent = "No data available for this drug.";
