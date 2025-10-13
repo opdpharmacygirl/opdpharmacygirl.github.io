@@ -16,7 +16,7 @@ function populateDropdown() {
   const uniqueNames = new Set();
 
   medications.forEach((med, index) => {
-    const name = med.name?.trim();
+    const name = med.Name?.trim();
     if (name && !uniqueNames.has(name)) {
       uniqueNames.add(name);
 
@@ -50,7 +50,8 @@ function calculateDose() {
   matchingDrugs.forEach(drug => {
     const dose = drug.MaxdosePerKg * weight;
     const li = document.createElement('li');
-    li.textContent = `${drug.concentration}: ${dose} ${drug.concentrationUnit}`;
+    //concentrationUnit need more calculation
+    li.textContent = `${drug.Concentration}: ${dose} ${drug.concentrationUnit}`;
     ul.appendChild(li);
   });
 

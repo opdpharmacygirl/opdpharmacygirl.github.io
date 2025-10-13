@@ -1,4 +1,4 @@
-ชื่อยา,Concentration (mg),Per,รูปแบบ,Usual,MindosePerKg,MaxdosePerKg,Kgnocalculate,mgbyKg,Age,mg for age,ml for age,MaxDosePerDay (mg),Interval,Age approval,Age/Weight,Per,Rule for interval,
+Name,Concentration,Per,Form,Usual,MindosePerKg,MaxdosePerKg,Kgnocalculate,mgbyKg,Age,mg for age,ml for age,MaxDosePerDay,Interval,Age approval,Age/Weight,Per,Rule for interval,
 Amoxicillin,250,5 ml,Syrup/Susp.,Usual,25,50,,,,,,2000,"2,3",0 year,by Weight,Per Day,OD,1 time/day
 ,500,cap,Tab/Cap,High,80,90,,,,,,,,,,,BID,2 time/day
 "Amoxicillin/
